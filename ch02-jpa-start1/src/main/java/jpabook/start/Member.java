@@ -2,6 +2,8 @@ package jpabook.start;
 
 import javax.persistence.*;
 
+import com.sun.istack.internal.Nullable;
+
 @Entity
 @Table(name="MEMBER")
 public class Member {
@@ -13,7 +15,7 @@ public class Member {
     @Column(name = "NAME")
     private String username;
 
-
+    @Nullable
     private Integer age;
 
     public String getId() {

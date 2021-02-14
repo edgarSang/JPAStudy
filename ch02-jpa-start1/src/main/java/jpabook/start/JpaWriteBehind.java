@@ -18,7 +18,10 @@ public class JpaWriteBehind {
         Member m2 = new Member();
 
         m1.setId("m1");
+        m1.setAge(12);
+        m2.setUsername("hi");
         m2.setId("m2");
+        m2.setAge(23);
 
         // Transaction write-behind
         em.persist(m1);
@@ -39,6 +42,7 @@ public class JpaWriteBehind {
         Member member = new Member();
         member.setId("memberA");
         member.setUsername("회원A");
+        member.setAge(12);
 
         em.persist(member);
 
