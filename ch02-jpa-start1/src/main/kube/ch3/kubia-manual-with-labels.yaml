@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-manual-v2
+  #레이블 두개를 파드에 붙임.
+  labels:
+    creation_method: manual
+    env: prod
+spec:
+  containers:
+    - image: edgarsang/kubia
+      name: kubia
+      ports:
+        - containerPort: 28080
+          protocol: TCP

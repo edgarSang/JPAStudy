@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-gpu
+spec:
+  ## gpu ture 노드에 배포
+  nodeSelector:
+    gpu: "true"
+  containers:
+    - image: edgarsang/kubia
+      name: kubia
