@@ -10,7 +10,7 @@
 	<properties>
 
 		<!-- 기본 설정 -->
-		<java.version>1.6</java.version>
+		<java.version>1.8</java.version>
 		<!-- 프로젝트 코드 인코딩 설정 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -36,7 +36,17 @@
 			<artifactId>h2</artifactId>
 			<version>${h2db.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>3.4.3</version>
+		</dependency>
 	</dependencies>
+
+
+
 
 	<build>
 		<plugins>
@@ -45,8 +55,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<source>8</source>
+					<target>8</target>
 				</configuration>
 			</plugin>
 		</plugins>
