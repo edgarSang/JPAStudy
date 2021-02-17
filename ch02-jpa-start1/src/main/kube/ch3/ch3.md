@@ -65,6 +65,17 @@
  - 여러컨테이너가 모여 하나의구성요소? 아님 개별
  - 컨터이너가 함께 스케일링 되어야하는가?
 
+```
+# 팟 생성
+kubectl create -f kubia-manual.yml
+
+#팟 로그
+kubectl logs kubia-manual
+#팟 안에 다른컨테이너에서 로그가져오기
+kubectl logs kubia-manual -c kubia
+```
+
+
 
 3.2 yaml 또는 json 디스크립터로 파드 생성
 (시작시 “did you specify the right host or port” 오류로 안됏을때 도커부터 실행할것)
