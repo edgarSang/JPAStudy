@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubia
+spec:
+  tls:                        # 전체 TLS구성이 이 속성 아래에 있다.
+    - hosts:
+        - kubia.example.com     # 이 호스트이름의 TLS연결이 허용된다.
+      secretName: tls-secret  # 개인키와 인증서는 이전에 작성한 tls-secret을 참조한다.
+  rules:
+    - host: kubia.example.com
+      http:
+        paths:
+          - path: /                       #모든요청은 kubia nodeport 서비스포트의 80으로 전달됨
+            backend:
+              serviceName: kubia
+              servicePort: 80
