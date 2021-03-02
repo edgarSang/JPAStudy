@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-pv
+spec:
+  capacity:
+    storage: 1Gi    # pv 사이즈 지정
+  accessModes:
+    - ReadWriteOnce   #이 PV는 단일 클라를 위한 읽기/쓰기용 이나
+    - ReadOnlyMany    # 여러클라를 위한 읽기전용 으로 마운트 된다.
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /tmp/mongodb
