@@ -20,3 +20,6 @@
   docker run <image> # 아무런 인자 지정않고 이미지 - CMD 물고 실행
   docker run <image> <arguments> # CMD에 정의된 값 재지정
 ```
+
+#### 7.2.2. 쿠버네티스에서 명령과 인자 재정의
+ - 컨테이너 정의시 ENTRYPOINT와 CMD 둘 다 재정의할 수 있다.
