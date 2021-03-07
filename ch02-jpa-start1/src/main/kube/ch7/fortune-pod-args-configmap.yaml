@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-args-from-configmap
+spec:
+  containers:
+    - name: fortune
+      image: edgarsang/fortune:args   #환경변수가 아닌 첫번째 인자에서 인터벌 가져오는 이미지
+      env:
+        - name: INTERVAL
+          valueFrom:
+            configMapKeyRef:
+              key: sleep-interval
+              name: fortune-config
+      args: ["${INTERVAL}"]         #인자에 앞에어서 정의한 환경변수 지정

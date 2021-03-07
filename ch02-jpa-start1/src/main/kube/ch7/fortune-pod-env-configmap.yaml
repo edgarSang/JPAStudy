@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: fortune-env-from-configmap
+  name: fortune-from-env-configmap
 spec:
   containers:
-  - image: edgarsang/fortune:env
+  - image: luksa/fortune:env
     env:
     - name: INTERVAL
       valueFrom:
         configMapKeyRef:
           name: fortune-config
           key: sleep-interval
+    name: html-generator
