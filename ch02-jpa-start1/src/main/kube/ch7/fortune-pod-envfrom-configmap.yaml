@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-env-from-configmap
+spec:
+  containers:
+  - image: edgarsang/fortune:env
+    name: fortunesh
+    envFrom:
+      - prefix: CONFIG_     #모든 환경변수는 CONFIG_ 접두사를 가짐
+        configMapRef:
+          name: my-config-map   #my config map이라는 컨피그맵 참조
+
