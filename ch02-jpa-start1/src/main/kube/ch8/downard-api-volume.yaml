@@ -50,4 +50,4 @@ spec:
             resourceFieldRef:
               resource: limits.memory
               containerName: main
-              divisor: 1
+              divisor:
