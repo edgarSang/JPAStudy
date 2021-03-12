@@ -14,17 +14,17 @@ spec:
   containers:
     - name: main
       image: busybox
-      command: ["sleep", "999999"]
+      command: ["sleep", "9999999"]
       resources:
         requests:
           cpu: 15m
           memory: 100Ki
         limits:
           cpu: 100m
-          memory: 100Ki
+          memory: 4Mi
       volumeMounts:
-        - mountPath: /etc/downward
-          name: downward
+        - name: downward
+          mountPath: /etc/downward
   volumes:
     - name: downward
       downwardAPI:
@@ -34,7 +34,7 @@ spec:
               fieldPath: metadata.name
           - path: "podNamespace"
             fieldRef:
-              fieldPath: metdata.namespace
+              fieldPath: metadata.namespace
           - path: "labels"
             fieldRef:
               fieldPath: metadata.labels
@@ -43,11 +43,11 @@ spec:
               fieldPath: metadata.annotations
           - path: "containerCpuRequestMilliCores"
             resourceFieldRef:
+              containerName: main
               resource: requests.cpu
-              containerName: cpu
               divisor: 1m
           - path: "containerMemoryLimitBytes"
             resourceFieldRef:
-              resource: limits.memory
               containerName: main
-              divisor:
+              resource: limits.memory
+              divisor: 1
