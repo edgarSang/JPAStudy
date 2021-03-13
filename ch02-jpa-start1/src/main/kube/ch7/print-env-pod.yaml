@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: print-env-pod
+spec:
+  containers:
+    - name: env-print-bash
+      image: bash
+      env:
+        - name: USER
+          valueFrom:
+            secretKeyRef:
+              name: tmpadmin
+              key: username
+        - name: PASS
+          valueFrom:
+            secretKeyRef:
+              name: tmpadmin
+              key: password
+      command: ["echo"]
+      args: ["$(USER) $(PASS)"]
